@@ -15,9 +15,8 @@
             setTask('') 
         }
             
-            }
-      
-         
+    }
+              
             
             function deleteTask(indexToDelete){
                 setTasks(tasks.filter((task,index) => index !== indexToDelete))
@@ -25,28 +24,29 @@
             }
             return(
                 <>
-                        <h1>Tareas</h1>
+                        <h1 className="text-center" style={{ color: 'blue', fontSize: '32px', fontWeight: 'bold' }}>Todos</h1>
                     <div>
                          
-                            <form onSubmit={addTask} style={{ display: 'flex',  marginBottom: '20px'}}>
+                            <form onSubmit={addTask}  style={{ display: 'flex',  marginBottom: '20px',  justifyContent: 'center' }}>
                             <input type="text" value={nuevaTarea} onChange={(e) => setNuevaTarea(e.target.value)}
                             />
                             </form>
 
-                        <h1>Tareas</h1>
-                        <ol>
+                        <div style={{ display: 'flex', justifyContent: 'center'}}>
+                        <ol style={{ listStyleType: 'none', paddingLeft: 0 }}>
                             {tasks.map((task, index)=> <li key={index}>{task}
-                                <button onClick={()=>deleteTask(index)}  style={{backgroundColor: 'white', color: 'gris',  border: 'none'}}>X</button>
+                                <button onClick={()=>deleteTask(index)}  style={{justifyContent: 'center' ,backgroundColor: 'white', color: 'gris',  border: 'none'}}>X</button>
                             </li>)}
                             
                         </ol>
-                         
+                          </div>
                        
             </div>
                     
 
-
-                    <p>Tienes {tasks.length} tareas pendientes</p>
+                    <div style={{ display: 'flex', justifyContent: 'center' }}>
+                        <p style={{justifyContent: 'center'}}> Tienes {tasks.length} tareas pendientes</p>
+                    </div>
                 </>
             )
         }
