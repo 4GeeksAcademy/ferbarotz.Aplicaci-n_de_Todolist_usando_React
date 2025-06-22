@@ -12,14 +12,18 @@ import '../styles/index.css'
 import Home from './components/Home';
 import Form from './components/Form';
 import Series from './components/Series';
-import Tareas from './components/Tareas';
+import Tareasuno from './components/Tareasuno';
 import Tareasdos from './components/Tareasdos';
 import Inputkey from './components/Inputkey';
 import Inputsub from './components/Inputsub';
-
+import Counter from './components/Counter';
+import Getdata from './components/Getdata';
+import Test from './components/Test';
+import Todo from './components/Todo';
+import Todo2 from './components/Todo2';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <Tareasdos  />
+    <Todo2/>
   </React.StrictMode>,
 )
