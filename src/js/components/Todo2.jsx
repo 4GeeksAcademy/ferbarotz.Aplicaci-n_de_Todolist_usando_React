@@ -49,12 +49,12 @@ const Tareas = () => {
     }
 
     return (
-        <div style={{ backgroundColor: "gray", width: "30%", margin: "50px auto", padding: "20px", boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)" }}>
+        <div style={{ backgroundColor: "gray", width: "30%", margin: "50px auto", padding: "20px", boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)", borderRadius: "10px" }}>
 
 
             <h1 style={{ textAlign: "center" }}>TODOS</h1>
             <form onSubmit={crearTareas} style={{ display: "flex", justifyContent: "center", marginBottom: "20px" }}>
-                <input type="text" value={nuevaTarea} onChange={(e) => setNuevaTarea(e.target.value)} style={{ backgroundColor: "white", width: "100%", padding: "8px", borderRadius: "5px", border: "1px solid #ccc" }} />
+                <input type="text" value={nuevaTarea} onChange={(e) => setNuevaTarea(e.target.value)} style={{ backgroundColor: "white", width: "100%", padding: "8px", borderRadius: "10px", border: "3px solid #ccc" }} />
             </form>
 
             {tasks.map((task) => <p style={{ display: "flex", justifyContent: "space-between", alignItems: "center", backgroundColor: "white", padding: "10px", marginBottom: "10px" }}
