@@ -24,6 +24,6 @@ import Todo2 from './components/Todo2';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <Todo2/>
+    <Todo2 />
   </React.StrictMode>,
 )

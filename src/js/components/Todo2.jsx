@@ -49,18 +49,20 @@ const Tareas = () => {
     }
 
     return (
-        < div style={{ backgroundColor: "lightgray", width: "30%", display: "flex", flexDirection: "column", alignItems: "center" }}>
-            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", marginTop: "2rem" }}>
-                <h1>TODOS</h1>
-                <form onSubmit={crearTareas} style={{ width: "100%" }}>
-                    <input type="text" value={nuevaTarea} onChange={(e) => setNuevaTarea(e.target.value) }/>
-                </form>
-                
-                {tasks.map((task) => <p key={task.id}>{task.label}
-                    <button onClick={() => eliminarTareas(task.id)}>X</button>
-                </p>)}
-                <p>Tienes {tasks.length} tareas pendientes</p>
-            </div>
+        <div style={{ backgroundColor: "gray", width: "30%", margin: "50px auto", padding: "20px", boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)" }}>
+
+
+            <h1 style={{ textAlign: "center" }}>TODOS</h1>
+            <form onSubmit={crearTareas} style={{ display: "flex", justifyContent: "center", marginBottom: "20px" }}>
+                <input type="text" value={nuevaTarea} onChange={(e) => setNuevaTarea(e.target.value)} style={{ backgroundColor: "white", width: "100%", padding: "8px", borderRadius: "5px", border: "1px solid #ccc" }} />
+            </form>
+
+            {tasks.map((task) => <p style={{ display: "flex", justifyContent: "space-between", alignItems: "center", backgroundColor: "white", padding: "10px", marginBottom: "10px" }}
+                key={task.id}>{task.label}
+                <button onClick={() => eliminarTareas(task.id)} style={{ backgroundColor: "white", color: "black", border: "none", }}>X</button>
+            </p>)}
+            <p style={{ textAlign: "center", marginTop: "20px" }}>Tienes {tasks.length} tareas pendientes</p>
+
         </div>
     )
 }
