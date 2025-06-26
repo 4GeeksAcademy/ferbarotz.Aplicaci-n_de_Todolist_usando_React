@@ -47,6 +47,21 @@ const Tareas = () => {
                 leerTareas()
             })
     }
+    function eliminarLasTareas() {
+        const requestOptions = {
+            method: "DELETE",
+            redirect: "follow"
+        };
+
+        Promise.all(
+            tasks.map((t) =>
+                fetch("https://playground.4geeks.com/todo/todos/" + t.id, requestOptions)
+            )
+        )
+            .then(() => leerTareas())
+
+    }
+
 
     return (
         <div style={{ backgroundColor: "gray", width: "30%", margin: "50px auto", padding: "20px", boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)", borderRadius: "10px" }}>
@@ -54,7 +69,7 @@ const Tareas = () => {
 
             <h1 style={{ textAlign: "center" }}>TODOS</h1>
             <form onSubmit={crearTareas} style={{ display: "flex", justifyContent: "center", marginBottom: "20px" }}>
-                <input type="text" value={nuevaTarea} onChange={(e) => setNuevaTarea(e.target.value)} style={{ backgroundColor: "white", width: "100%", padding: "8px", borderRadius: "10px", border: "3px solid #ccc" }} />
+                <input type="text" value={nuevaTarea} onChange={(e) => setNuevaTarea(e.target.value)} style={{ backgroundColor: "white", width: "100%", padding: "8px", borderRadius: "10px", border: "3px solid" }} />
             </form>
 
             {tasks.map((task) => <p style={{ display: "flex", justifyContent: "space-between", alignItems: "center", backgroundColor: "white", padding: "10px", marginBottom: "10px" }}
@@ -62,7 +77,9 @@ const Tareas = () => {
                 <button onClick={() => eliminarTareas(task.id)} style={{ backgroundColor: "white", color: "black", border: "none", }}>X</button>
             </p>)}
             <p style={{ textAlign: "center", marginTop: "20px" }}>Tienes {tasks.length} tareas pendientes</p>
-
+            <div style={{ display: "flex", justifyContent: "center" }}>
+                <button onClick={eliminarLasTareas} style={{ backgroundColor: "white", width: "60%", padding: "5px", borderRadius: "8px", border: "3px solid" }}>Eliminar Tareas</button>
+            </div>
         </div>
     )
 }
